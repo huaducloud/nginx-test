@@ -1,0 +1,39 @@
+server:
+  port: 18082
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://49.235.28.171:33306/huadu_cloud?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    username: root
+    password: hls19940827
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      database: MYSQL
+      show-sql: true
+      properties:
+        hibernate.id.new_generator_mappings: true
+        hibernate.generate_statistics: true
+      open-in-view: false
+      hibernate:
+        ddl-auto: update
+        naming:
+          physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+          implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+
+#启用 swagger-ui
+swagger:
+  enabled: true
+
+jwt:
+  header: Authorization
+
+#图片上传位置
+image:
+  path: /home/upload/file
+  size: 20
